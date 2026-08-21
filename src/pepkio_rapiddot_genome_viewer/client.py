@@ -28,7 +28,7 @@ class PepkioClient:
         self.base_url = get_api_base_url(base_url)
         self.api_key = get_api_key(api_key)
         self.timeout = timeout
-        self.verify = get_verify_ssl(verify)
+        self.verify = get_verify_ssl(verify, base_url=self.base_url)
 
     def _get_headers(self, requires_auth: bool = True) -> Dict[str, str]:
         headers = {"Content-Type": "application/json"}

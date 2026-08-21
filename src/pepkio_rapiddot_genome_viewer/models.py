@@ -8,9 +8,7 @@ class ToolInput(BaseModel):
 
     model_config = ConfigDict(extra="allow")
 
-    mode: Optional[str] = Field(
-        default=None, description="pairwise, self, or alignment"
-    )
+    mode: Optional[str] = Field(default=None, description="pairwise, self, or alignment")
     query_fasta: Optional[str] = Field(
         default=None, description="Query FASTA text (pairwise/self modes)"
     )
@@ -20,9 +18,7 @@ class ToolInput(BaseModel):
     alignment_text: Optional[str] = Field(
         default=None, description="PAF or BLAST tabular alignment text"
     )
-    alignment_format: Optional[str] = Field(
-        default=None, description="paf or blast"
-    )
+    alignment_format: Optional[str] = Field(default=None, description="paf or blast")
     kmer_size: Optional[int] = Field(
         default=None, description="K-mer/window size (11, 15, 21, or 31)"
     )
@@ -38,9 +34,7 @@ class ToolInput(BaseModel):
     show_contig_grid: Optional[bool] = Field(
         default=None, description="Show contig boundary grid lines"
     )
-    gff_text: Optional[str] = Field(
-        default=None, description="Optional GFF3 annotation rows"
-    )
+    gff_text: Optional[str] = Field(default=None, description="Optional GFF3 annotation rows")
 
 
 class RunOptions(BaseModel):

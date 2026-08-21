@@ -61,9 +61,7 @@ def manifest(base_url: Optional[str], json_output: bool):
     default=False,
     help="Poll until completion if run status is queued/running",
 )
-@click.option(
-    "--output-json", type=click.Path(), help="Optional file path to save response JSON"
-)
+@click.option("--output-json", type=click.Path(), help="Optional file path to save response JSON")
 def run(
     example: Optional[str],
     input_json: Optional[str],

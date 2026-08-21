@@ -19,9 +19,13 @@ def get_api_key(custom_api_key: str | None = None) -> str | None:
     return os.getenv("PEPKIO_API_KEY") or os.getenv("LOCAL_PEPKIO_API_KEY")
 
 
-def get_verify_ssl(custom_verify: bool | None = None) -> bool:
+def get_verify_ssl(custom_verify: bool | None = None, base_url: str | None = None) -> bool:
     """Return SSL verification setting."""
     if custom_verify is not None:
         return custom_verify
-    val = os.getenv("PEPKIO_VERIFY_SSL", "true").lower()
-    return val not in ("false", "0", "no", "off")
+    val = os.getenv("PEPKIO_VERIFY_SSL")
+    if val is not None:
+        return val.lower() not in ("false", "0", "no", "off")
+    if base_url and "localtest.me" in base_url:
+        return False
+    return True
