@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Python client for Pepkio rapiddot-genome-viewer tool."""
 
 from .client import PepkioClient

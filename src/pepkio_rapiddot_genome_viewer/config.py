@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 import os
 
 DEFAULT_API_BASE_URL = "https://tools.pepkio.com"
