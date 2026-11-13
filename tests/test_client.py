@@ -103,7 +103,10 @@ def test_get_run_success(httpx_mock: HTTPXMock):
     assert res.status == "completed"
 
 
-def test_missing_api_key_raises_auth_error():
+def test_missing_api_key_raises_auth_error(monkeypatch):
+    monkeypatch.delenv("PEPKIO_API_BASE_URL", raising=False)
+    monkeypatch.delenv("PEPKIO_API_KEY", raising=False)
+    monkeypatch.delenv("LOCAL_PEPKIO_API_KEY", raising=False)
     client = PepkioClient(api_key=None)
     with pytest.raises(PepkioAuthError) as excinfo:
         client.run({"mode": "pairwise"})
